@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<appdeployment:Deployment 
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:appdeployment="http://www.ibm.com/websphere/appserver/schemas/5.0/appdeployment.xmi">
+    <deployedObject xmi:type="appdeployment:ApplicationDeployment">
+        <classloader>
+            <libraries libraryName="mojarra 2.0.6" />
+        </classloader>
+    </deployedObject>
+
+    <!--
+    <targetMappings enable="true" config="ApplicationConfig_1328250118428"/>
+    <configs xmi:type="appcfg:ApplicationConfig" xmi:id="ApplicationConfig_1328250118428">
+        <sessionManagement enable="true" 
+                          enableUrlRewriting="false" 
+                          enableCookies="true" 
+                          enableSSLTracking="false" 
+                          enableProtocolSwitchRewriting="false" 
+                          sessionPersistenceMode="NONE"
+                          enableSecurityIntegration="true"
+                          allowSerializedSessionAccess="false">
+            <defaultCookieSettings />
+            <sessionDatabasePersistence />
+            <tuningParams maxInMemorySessionCount="1000" 
+                       allowOverflow="true" 
+                       writeFrequency="TIME_BASED_WRITE" 
+                       writeInterval="10" 
+                       writeContents="ONLY_UPDATED_ATTRIBUTES" 
+                       invalidationTimeout="180">
+                <invalidationSchedule />
+            </tuningParams>
+            <sessionDRSPersistence />
+        </sessionManagement>
+    </configs>
+    -->
+</appdeployment:Deployment>

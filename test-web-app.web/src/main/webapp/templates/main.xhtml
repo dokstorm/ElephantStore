@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:nx="http://www.neoflex.ru/webui"
+      xmlns:rich="http://richfaces.org/rich">
+<h:head>
+    <meta http-equiv="X-UA-Compatible" content="IE=8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="Expires" content="-1" />
+
+    <link rel="shortcut icon" href="#{facesContext.externalContext.requestContextPath}/theme/favicon.ico" type="image/ico"/>
+    <link rel="icon" href="#{facesContext.externalContext.requestContextPath}/theme/favicon.ico" type="image/png" />
+
+    <link href="#{facesContext.externalContext.requestContextPath}/theme/pages.css" type="text/css" rel="stylesheet" />
+    <ui:include src="/theme/core.css.xhtml">
+        <ui:param name="footerHeight" value="#{footerHeight}"/>
+    </ui:include>
+    <link href="#{facesContext.externalContext.requestContextPath}/theme/menu.css" type="text/css" rel="stylesheet" />
+    <link href="#{facesContext.externalContext.requestContextPath}/theme/stylesheet-neoflex-faces-components.css" type="text/css" rel="stylesheet" />
+    <title><h:outputText value="#{msg.PAGE_TITLE}" /></title>
+
+</h:head>
+<h:body>
+    <nx:status />
+    <!-- 
+    <script type="text/javascript">
+        A4J.AJAX.onExpired = function(loc, expiredMsg) {
+            return "#{facesContext.externalContext.requestContextPath}/timeout";
+        }
+    </script>
+     -->
+    <div class="page">
+        <ui:insert name="header">Header</ui:insert>
+        <ui:insert name="body">Body<br /></ui:insert>
+
+        <div class="footer_guarantor"></div>
+
+    </div>
+    <div class="page-footer">
+         <ui:insert name="footer" />
+    </div>
+</h:body>
+</html>
+

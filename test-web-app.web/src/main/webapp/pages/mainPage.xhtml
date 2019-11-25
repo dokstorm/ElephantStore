@@ -1,0 +1,40 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:nx="http://www.neoflex.ru/webui"
+                xmlns:rich="http://richfaces.org/rich"
+                template="/templates/main.xhtml">
+    <ui:param name="footerHeight" value="6.5"/>
+
+    <f:loadBundle basename="ru.neoflex.common" var="msg"/>
+
+    <ui:define name="header">
+        <nx:gridLayout cellpadding="10px" width="100%" columns="1">
+            <ui:include src="/pages/parts/top.xhtml">
+                <ui:param name="topMsg"
+                          value="${msg}"/>
+            </ui:include>
+            <nx:cell style="width:100%;">
+                <div style="width:100%; font-size: 1px;border-bottom-style: solid; border-bottom-width:1px;border-bottom-color:rgb(192,192,192);"/>
+            </nx:cell>
+        </nx:gridLayout>
+    </ui:define>
+
+    <ui:define name="footer">
+        <table cellpadding="10px" style="width:100%">
+            <tbody>
+            <tr>
+                <td>
+                    <ui:include src="/pages/parts/bottom.xhtml">
+                        <ui:param name="version"
+                                  value="${buildVersion}"/>
+                    </ui:include>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,69 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:nx="http://www.neoflex.ru/webui"
+                template="/pages/mainPage.xhtml">
+    <ui:define name="body">
+        <style type="text/css">
+    .row1 {
+        background-color: #dddddd;
+    }
+</style>
+
+        <h:form id="orderForm">
+            <f:event type="preRenderView" listener="#{catalogBean.init}"/>
+
+            <h:panelGroup id="catalog">
+
+                <nx:gridLayout id="cat-headers" columns="4"
+                               columnWidths="150px,150px,400px,100px"
+                               columnAlign="center" cellspacing="5px">
+                    <nx:cell>
+                        <h:outputText
+                                value="Изображение"/>
+                    </nx:cell>
+                    <nx:cell>
+                        <h:outputText
+                                value="Название"/>
+                    </nx:cell>
+                    <nx:cell>
+                        <h:outputText
+                                value="Описание"/>
+                    </nx:cell>
+                    <nx:cell>
+                        <h:outputText
+                                value="Цена, руб"/>
+                    </nx:cell>
+                </nx:gridLayout>
+                <ui:repeat var="elephant" value="#{catalogBean.allElephants}">
+                    <nx:gridLayout columns="4"
+                                   columnWidths="150px,150px,400px,100px"
+                                   rowClasses="row1"
+                                   columnAlign="center" columnVAlign="top"
+                                   cellspacing="5px">
+                        <nx:cell>
+                            <h:graphicImage
+                                    value="/pics/#{elephant.picture}"/>
+                        </nx:cell>
+                        <nx:cell>
+                            <h:outputText style="font-weight: bold;"
+                                          value="#{elephant.name}"/>
+                        </nx:cell>
+                        <nx:cell>
+                            <h:outputText
+                                    value="#{elephant.description}"/>
+                        </nx:cell>
+                        <nx:cell>
+                            <h:outputText
+                                    value="#{elephant.price}"/>
+                        </nx:cell>
+
+                    </nx:gridLayout>
+                </ui:repeat>
+            </h:panelGroup>
+        </h:form>
+    </ui:define>
+</ui:composition>

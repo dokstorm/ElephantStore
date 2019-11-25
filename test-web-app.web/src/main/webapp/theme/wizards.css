@@ -1,0 +1,32 @@
+/* CSS Document */
+
+.wizardTitle {
+	font-weight: bold;
+}
+
+.wizardErrors {
+	padding-left: 10px;
+	color: red;
+}
+
+.wizardBottom {
+	text-align: right;
+	border: 1px; 
+}
+
+.wizardMenuTable {
+	
+}
+
+.cleanColumn {
+	border: 0px;
+}
+
+.fullPhone {
+	font-weight: bold;
+}
+
+.partyHeaderPanel {
+	width: 100%;
+	text-align: right;
+}

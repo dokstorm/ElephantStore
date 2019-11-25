@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+             xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+        http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    <persistence-unit name="oracleelephant"
+                      transaction-type="JTA">
+         <provider>org.apache.openjpa.persistence.PersistenceProviderImpl
+        </provider>
+        <jta-data-source>jdbc/oracleelephant</jta-data-source>
+        <class>ru.neoflex.domain.ElephantType</class>
+        <class>ru.neoflex.domain.ElephantTypeAge</class>
+        <class>ru.neoflex.domain.Order</class>
+        <class>ru.neoflex.domain.AbstractEntity</class>
+        <class>ru.neoflex.domain.Item</class>
+        <properties>
+            <property name="openjpa.TransactionMode" value="managed"/>
+            <property name="openjpa.ConnectionFactoryMode" value="managed"/>
+            <property name="openjpa.jdbc.DBDictionary" value="oracle"/>
+        </properties>
+     </persistence-unit>
+</persistence>

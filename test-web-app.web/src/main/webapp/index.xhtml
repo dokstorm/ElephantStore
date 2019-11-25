@@ -1,0 +1,28 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:nx="http://www.neoflex.ru/webui"
+                template="/pages/mainPage.xhtml">
+    <ui:define name="body">
+        <nx:gridLayout columns="2" cellspacing="20px">
+            <nx:cell>
+                <h:graphicImage
+                        value="https://neowiki.neoflex.ru/download/attachments/5867868/slon.jpg?api=v2"/>
+            </nx:cell>
+            <nx:cell>
+                <nx:gridLayout columns="1">
+                    <h:outputText
+                            value="Африканские и азиатские слоны. Боевые, рабочие и декоративные. Цены от производителя. Доставка в кратчайшие сроки."/>
+                    <br/><br/>
+                    <nx:cell align="right">
+                        <h:button outcome="catalog.jsf"
+                                  value="Я готов купить слона >>"/>
+                    </nx:cell>
+                </nx:gridLayout>
+            </nx:cell>
+        </nx:gridLayout>
+    </ui:define>
+</ui:composition>

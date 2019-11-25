@@ -1,0 +1,39 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:nx="http://www.neoflex.ru/webui" template="/pages/mainPage.xhtml">
+	<ui:define name="body">
+		<style type="text/css">
+.row1 {
+	background-color: #dddddd;
+}
+</style>
+	 <h:form id="managerForm">
+			<f:event type="preRenderView" listener="#{ordersBean.init}" />
+		<h1>Заказы</h1>
+     
+		<nx:dataScroller for="table" id="scroller" />
+		
+		<nx:dataTable id="table" value="#{ordersBean.ordersData}" bean="#{ordersBean}"
+			width="400px">
+		 <nx:column id="customer" width="200px" label="фио заказчика" type="custom">
+			   <h:outputText style="color:red;" value="#{_entity.userName}"/>
+		 </nx:column>
+		
+		 <nx:column id="ordid" width="100px" label="номер заказа" type="custom">
+			   <h:outputText style="color:blue;" value="#{_entity.id}"/>
+		 </nx:column> 
+		 <nx:column id="ordDet" width="100px" label="" type="custom">
+			  <h:commandButton value="+" action="">
+				 <f:param name="orderid" value="#{_entity.id}" />
+			 </h:commandButton>
+		 </nx:column> 
+		</nx:dataTable>
+      </h:form>
+	</ui:define>
+</ui:composition>
+

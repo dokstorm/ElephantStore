@@ -1,0 +1,117 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j">
+<ui:composition>
+<style type="text/css">
+html, body {
+   height: 100%; 
+   margin: 0; 
+   padding: 0;
+   font-family: Arial, sans-serif;
+   font-size: 11px;
+   color: black;
+   background:#ffffff;
+}
+.page {
+   min-height: 100%; 
+   margin: 0 auto;
+   margin-bottom: -#{footerHeight}em; 
+   width: 89em; 
+   background-color: white;
+   background:url(#{facesContext.externalContext.requestContextPath}/theme/img/bg.gif) no-repeat left top;
+}
+
+* html .page {
+   height: 100%;
+}
+
+.footer_guarantor {
+   height: #{footerHeight}em; 
+   clear: both;
+   width: 89em; 
+}
+
+.page-footer {
+   margin: 0 auto;
+   height: #{footerHeight}em; 
+   background-color: white;
+   margin-top: 8px;
+   font-family: Arial, sans-serif;
+   width: 89em;
+   border-top-width: 1px;
+   border-top-style: solid;
+   border-top-color: rgb(192, 192, 192);
+}
+
+.extdt-row-selected {
+  background-color: #D6D6D5; 
+}
+
+table, div, input, select, button, textarea, span, label {
+   font-size: 11px;
+}
+
+legend {
+   color: #0075CD;
+}
+
+td.atbTopInfo {
+   font-family: Arial, sans-serif;
+   font-size: 11px;
+   font-weight: bold;
+   color: #008855;
+   text-align: right;
+   margin:0;
+   padding:0;
+}
+
+input[type="text"] {
+   padding-right: 1px;
+}
+
+input:focus {
+   background-color: #999999;
+}
+
+input[type="checkbox"]:focus {
+  background-color: white;
+  border-color: #999999;
+}
+
+.button-width-65px,
+input[type="submit"][value="Ок"],
+input[type="submit"][value="ОК"],
+input[type="submit"][value="Ok"], /* Написано латинскими буквами */ 
+input[type="submit"][value="OK"], /* Написано латинскими буквами */
+input[type="submit"][value="Отмена"] {
+    width: 65px;
+}
+
+select[disabled] {
+   color: #555555 !important;
+   background: #FEFFFC;
+   background-color: #FEFFFC;
+   cursor: default;
+}
+
+textarea[disabled], input[type="text"][disabled], input[type="password"][disabled] {
+   color: black !important;
+   background-color: #FEFFFC;
+   background: #FEFFFC;
+   cursor: default;
+}
+
+input.noselect {
+    -moz-user-select: none;
+    -o-user-select:none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+</style>
+</ui:composition>
+</html>

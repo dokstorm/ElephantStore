@@ -1,0 +1,230 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,input,textarea,p,blockquote,th,td,select { 
+    margin:0;
+    padding:0;
+   font-family: Arial, sans-serif;
+   font-size: 11px;
+}
+
+#nxLogo {
+float:left;
+width:421px;
+}
+
+#nxLogo #logo {
+display:block;
+margin:0px 0px 0px 0px;
+}
+
+#nxLogo #slogan {
+padding-left:122px;
+padding-top:0px;
+}
+
+.topInfo{
+    font-weight: bold;
+    color: #3049AD;
+    text-align: right;  
+}
+
+.topInfoText {
+    font-weight: bold;  
+    text-align: left;
+    white-space: nowrap;
+}
+
+.container  {
+    color:inherit;
+    padding:0px 38px 0px 28px;
+}
+
+table.mainTable{
+    height: 100%;
+    width: 100%;
+}
+
+table.wide{
+	width: 100%;
+}
+
+.listPanel{
+	border: 0px; 
+	overflow: auto; 
+	height: 120px;
+}
+
+.layoutTop{
+    vertical-align: top;    
+}
+
+.layoutCenter{
+    height: 100%;
+    vertical-align: top;
+}
+
+.layoutBottom{
+    vertical-align: top;
+}
+
+.layoutMenu{
+    width: 20%;
+}
+
+.layoutWorkground{
+    width: 80%;
+}
+
+.info-panel {
+	position: absolute; 
+	top: 0px; 
+	left: 0px;
+	width: 30em;
+	filter: alpha(opacity=80);
+}
+
+.info-panel-header {
+	background-color: #CC3333; 
+	color: #CC3333;
+	text-align: center;
+	font-size: 13px; 
+}
+
+.info-panel-body {
+
+}
+
+
+a         {color: #777; text-decoration: underline;}
+a:hover   {color: #777; text-decoration: none;}
+a img     {border:0}
+
+
+h1 {color: #777; font-size: 2.4em; margin: 0.5em 0 1em 0; font-weight: 100;}
+h2 {font-size: 1.5em; font-weight: 100;}
+h3 {font-size: 1.2em; font-weight: 900;}
+h2,h3 {color: #8B9399;}
+
+
+.right-align-column
+{   text-align:right; }
+
+.left-align-column
+{   text-align:left; }
+
+.center-align-column
+{   text-align:center; }
+
+.inputReadonly
+{ background: buttonface; }
+
+.rich-column-style {
+    white-space: normal;
+    font-weight: normal;
+    display: block;
+    text-align: left;
+}
+
+.dr-table-headercell {
+    font-weight : normal;
+}
+
+.nflx-datatable-empty-message-style {
+    text-align: center;
+    width: 100%;
+    font-style: italic;
+    font-size: 12px;   
+}
+
+
+.nflx-table-headercell {
+    font-weight : normal;
+}
+
+.nflx-panel-grid-normal-col {
+    font-weight : normal;
+}
+
+.nflx-panel-grid-normal-col-nowrap {
+   white-space: nowrap; 
+}
+
+.nflx-valign {
+    vertical-align: top;
+}
+
+.other-gain-charges-column {
+    vertical-align: top;
+    text-align: right; 
+}
+
+.nflx-panel-grid-labels-col {
+   white-space: nowrap;
+   vertical-align: top; 
+}
+
+.nflx-1em-column {
+    width: 1em;
+}
+
+.nflx-panel-grid-fill-col { 
+    width: 100%; 
+}
+
+.nflx-point {
+    cursor : pointer;
+}
+
+.nflx-fixed-width-col {
+    width: 17.5em;
+}
+
+input[disabled='disabled'][type='text'] {
+   background-color: white;
+   border: 1px solid #CCCCCC;
+   color: black; 
+}
+
+textarea[disabled='disabled'] {
+	background-color: white;
+	border: 1px solid #CCCCCC;
+	color: black; 
+}
+
+.nx-100pc-width {
+	width: 100%; 
+}
+
+.nx-empty {
+
+}
+
+.nx-50pc-width {
+	width: 50%;
+}
+
+.background-red {
+    background-color: #FFCCAA;
+}
+
+.background-green {
+    background-color: #BBFFE0;
+}
+
+.background-yellow {
+    background-color: #FFFFCC;
+}
+
+.font-weight-bold {
+    font-weight: bold;
+}
+
+.nx-no-wrap {
+    white-space: nowrap;
+}
+
+.nx-left-margin-10px {
+    margin-left: 10px;
+}
+
+.nx-width-400px {
+    width: 400px !important;
+}

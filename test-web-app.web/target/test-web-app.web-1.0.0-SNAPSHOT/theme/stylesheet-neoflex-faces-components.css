@@ -1,0 +1,14 @@
+/********************************
+ *	Стили для neoflex-компонентов из maven-артифакта "neoflex.faces.components" *
+ ********************************/
+
+.nx-pageLegend {
+	font-weight: bold;
+	color: red;
+	padding: 10px;
+	font-size: 14px;
+}
+
+.nx-fieldset {
+	color: #3333FF;
+}

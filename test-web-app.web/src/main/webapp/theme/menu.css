@@ -1,0 +1,46 @@
+.main-menu {
+   background: #f1f1f1;
+   border: none;
+}
+
+.menu-top-group {
+   background: #f1f1f1;
+   border: none;
+}
+
+.green-right-border {
+   background:url(/neoflex.atb.front.web/theme/img/blue-cor.gif) repeat-y right;
+}
+
+.green-right-border-bot {
+   background:url(/neoflex.atb.front.web/theme/img/blue-bot-cor.gif) no-repeat right bottom;
+}
+
+.green-right-border-top {
+   background:url(/neoflex.atb.front.web/theme/img/blue-top-cor.gif) no-repeat right top;
+   padding-right: 11px;
+}
+
+.grey_whith_lines {
+   background:#f1f1f1 url(/neoflex.atb.front.web/theme/img/greylines.gif) no-repeat right bottom;
+}
+
+.r-b-cor {
+   background:url(/neoflex.atb.front.web/theme/img/rbcor.gif) no-repeat right bottom;
+}
+
+.l-b-cor {
+   background:url(/neoflex.atb.front.web/theme/img/lbcor.gif) no-repeat left bottom;
+}
+
+.r-t-cor {
+   background:url(/neoflex.atb.front.web/theme/img/rtcor.gif) no-repeat right top;
+}
+
+.l-t-cor {
+   background:url(/neoflex.atb.front.web/theme/img/ltcor.gif) no-repeat left top;
+}
+
+.dr-pmenu-selected-item {
+  font-style : normal;
+}

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>ru.neoflex</groupId>
+	<artifactId>test-web-app</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>${project.artifactId}</name>
+	<description>Родительский проект</description>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8
+		</project.reporting.outputEncoding>
+
+		<!-- Neoflex components -->
+		<neoflex.faces.version>1.2.18-SNAPSHOT</neoflex.faces.version>
+
+		<!-- Ext dependency -->
+		<java.version>1.6</java.version>
+		<javaee.version>5</javaee.version>
+		<jsp-api.version>2.0</jsp-api.version>
+		<servlet-api.version>2.5</servlet-api.version>
+		<el-api.version>2.2</el-api.version>
+		<mail.version>1.4.4</mail.version>
+		<ws.version>7.0.0</ws.version>
+		<jsf.version>2.0.6</jsf.version>
+		<openjpa.version>2.0.1</openjpa.version>
+		<junit.version>4.8.2</junit.version>
+
+
+		<!-- Plugins -->
+		<maven-war-plugin.version>2.1.1</maven-war-plugin.version>
+		<maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
+		<maven-release-plugin.version>2.1</maven-release-plugin.version>
+		<maven-war-plugin.version>2.1.1</maven-war-plugin.version>
+		<maven-source-plugin.version>2.1.2</maven-source-plugin.version>
+		<maven-ear-plugin.version>2.6</maven-ear-plugin.version>
+		<maven-ejb-plugin.version>2.3</maven-ejb-plugin.version>
+		<openjpa-maven-plugin.version>2.3.0</openjpa-maven-plugin.version>
+		<maven-javadoc-plugin.version>2.8</maven-javadoc-plugin.version>
+		<sonar-maven-plugin.version>2.0</sonar-maven-plugin.version>
+	</properties>
+
+	<modules>
+		<module>test-web-app.client</module>
+		<module>test-web-app.ejb</module>
+		<module>test-web-app.web</module>
+		<module>test-web-app.app</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>test-web-app.client</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>test-web-app.ejb</artifactId>
+				<type>ejb</type>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>test-web-app.web</artifactId>
+				<type>war</type>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>test-web-app.app</artifactId>
+				<type>ear</type>
+				<version>${project.version}</version>
+			</dependency>
+
+			<!-- JEE -->
+			<dependency>
+				<groupId>javax.j2ee</groupId>
+				<artifactId>ejb</artifactId>
+				<version>${ws.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<!-- JPA -->
+
+			<dependency>
+				<groupId>org.apache.openjpa</groupId>
+				<artifactId>openjpa</artifactId>
+				<version>${openjpa.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<!-- JSF -->
+
+			<dependency>
+				<groupId>javax.el</groupId>
+				<artifactId>el-api</artifactId>
+				<version>${el-api.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>jsp-api</artifactId>
+				<version>${jsp-api.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>${servlet-api.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>com.sun.faces</groupId>
+				<artifactId>jsf-api</artifactId>
+				<version>${jsf.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>com.sun.faces</groupId>
+				<artifactId>jsf-impl</artifactId>
+				<version>${jsf.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>ru.neoflex.faces</groupId>
+				<artifactId>neoflex.faces.injection.provider</artifactId>
+				<version>${neoflex.faces.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>ru.neoflex.faces</groupId>
+				<artifactId>neoflex.faces.resource.resolver</artifactId>
+				<version>${neoflex.faces.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+
+			<!-- UI -->
+			<dependency>
+				<groupId>ru.neoflex.faces</groupId>
+				<artifactId>neoflex.faces.components</artifactId>
+				<version>${neoflex.faces.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>ru.neoflex.faces</groupId>
+				<artifactId>neoflex.faces.beans</artifactId>
+				<version>${neoflex.faces.version}</version>
+			</dependency>
+
+			<!-- Тесты -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler-plugin.version}</version>
+					<configuration>
+						<fork>true</fork>
+
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+						<!-->Build with java 6</!-->
+
+
+						<compilerArgument>-Aopenjpa.metamodel=true</compilerArgument>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-ejb-plugin</artifactId>
+					<version>${maven-ejb-plugin.version}</version>
+					<configuration>
+						<ejbVersion>3.0</ejbVersion>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>${maven-release-plugin.version}</version>
+					<configuration>
+						<goals>deploy</goals>
+						<preparationGoals>clean install</preparationGoals>
+						<useReleaseProfile>false</useReleaseProfile>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>${maven-war-plugin.version}</version>
+					<configuration>
+						<webResources>
+							<resource>
+								<directory>src/main/webapp</directory>
+								<includes>
+									<include>**/*.xhtml</include>
+									<include>**/*.html</include>
+									<include>**/*.jsp</include>
+								</includes>
+								<filtering>false</filtering>
+							</resource>
+						</webResources>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-ear-plugin</artifactId>
+					<version>${maven-ear-plugin.version}</version>
+					<configuration>
+						<defaultLibBundleDir>lib</defaultLibBundleDir>
+						<version>${javaee.version}</version>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.openjpa</groupId>
+					<artifactId>openjpa-maven-plugin</artifactId>
+					<version>${openjpa-maven-plugin.version}</version>
+					<dependencies>
+						<dependency>
+							<groupId>org.apache.openjpa</groupId>
+							<artifactId>openjpa</artifactId>
+							<version>${openjpa.version}</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>sonar-maven-plugin</artifactId>
+					<version>${sonar-maven-plugin.version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>${maven-source-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${maven-javadoc-plugin.version}</version>
+			</plugin>
+		</plugins>
+	</build>
+	<scm>
+		<url>https://svn.neoflex.ru/svn/Education/trunk/rmorenko/${project.artifactId}</url>
+		<connection>scm:svn:https://svn.neoflex.ru/svn/Education/trunk/rmorenko/${project.artifactId}</connection>
+	</scm>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>nffoserv</id>
+			<url>http://nfo-product:8080/nexus/content/repositories/snapshots
+			</url>
+		</snapshotRepository>
+		<repository>
+			<id>Neoflex</id>
+			<url>http://nfo-product:8080/nexus/content/repositories/Neoflex
+			</url>
+		</repository>
+	</distributionManagement>
+</project>

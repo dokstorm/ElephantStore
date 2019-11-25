@@ -1,0 +1,64 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+              xmlns:ui="http://java.sun.com/jsf/facelets"
+              xmlns:h="http://java.sun.com/jsf/html"
+              xmlns:f="http://java.sun.com/jsf/core"
+              xmlns:a4j="http://richfaces.org/a4j">
+
+    <table style="width:100%;" cellpadding="10px">
+        <tbody>
+        <tr>
+            <td>
+                <div id="nxLogo">
+                    <div id="logo">
+                        <img src="#{facesContext.externalContext.requestContextPath}/theme/img/logo/neoflexLogo.gif"/>
+                    </div>
+                </div>
+            </td>
+            <td width="100%"/>
+            <td>
+                <table class="mainTable">
+                    <tbody>
+                    <tr style="height:30%;">
+                        <td class="topInfo" style="padding: 0 10px 0 10px; white-space:nowrap;">
+                            <h:outputText value="#{topMsg.GREET}"/>
+                        </td>
+                        <!--
+                        <td class="topInfoText">
+                            <h:outputText value="#{atbSecurityBean.currentDate}"/>
+                        </td>
+                        -->
+                    </tr>
+                    <!--
+                    <tr style="height:30%;">
+                        <td class="atbTopInfo" style="padding: 0 10px 0 10px; white-space:nowrap;">
+                            <h:outputText value="#{atbMsg.USER_NAME}:"/>
+                        </td>
+                        <td class="topInfoText">#{securityBean.userName}</td>
+                    </tr>
+                    <tr style="height:30%;">
+                        <td class="atbTopInfo" style="padding: 0 10px 0 10px; white-space:nowrap;">
+                            <h:outputText value="#{atbMsg.USER_DEPARTMENT}:"/>
+                        </td>
+                        <td class="topInfoText">
+                            <h:outputText value="#{atbSecurityBean.currentUserOrganizationUnitTitle}"/>
+                        </td>
+                    </tr>
+                    -->
+
+                    </tbody>
+                </table>
+            </td>
+            <!--
+            <td style="vertical-align: bottom;">
+                <h:form>
+                    <a href="#{mainContextBean.mainContext}/ibm_security_logout?logoutExitPage=/index.jsf"
+                        onclick="return confirm('#{atbMsg.EXIT_CONFIRM}');">
+                        <h:outputText value="#{msg.EXIT_LINK_TEXT}"/>
+                    </a>
+                </h:form>
+            </td>
+            -->
+        </tr>
+        </tbody>
+    </table>
+</ui:component>

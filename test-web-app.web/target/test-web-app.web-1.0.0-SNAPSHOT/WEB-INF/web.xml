@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+    version="2.5">
+        
+    <listener>
+        <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.jsf</url-pattern>
+    </servlet-mapping>
+
+
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+        <param-value>.xhtml</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>com.sun.faces.injectionProvider</param-name>
+        <param-value>ru.neoflex.faces.vendor.Was7InjectionProvider</param-value>
+    </context-param>
+
+    <!--<context-param>
+        <param-name>javax.faces.FACELETS_RESOURCE_RESOLVER</param-name>
+        <param-value>ru.neoflex.faces.view.facelets.ClassPathResourceResolver</param-value>
+    </context-param>-->
+    
+    <context-param>
+        <param-name>facelets.SKIP_COMMENTS</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>
+            javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL
+        </param-name>
+        <param-value>true</param-value>
+    </context-param>
+    
+    <welcome-file-list>
+        <welcome-file>index.jsf</welcome-file>
+    </welcome-file-list>
+  
+    <mime-mapping>
+        <extension>xhtml</extension>
+        <mime-type>application/xhtml+xml</mime-type>
+    </mime-mapping>
+
+    <context-param>
+        <param-name>sessionExpiredUrl</param-name>
+        <param-value>/loginTimeout.html</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>sessionExpiredRedirect</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>org.richfaces.fileUpload.createTempFiles</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+</web-app>
