@@ -9,10 +9,11 @@ import java.util.Set;
  * Сущность с товарной позицией
  */
 @Entity
-@Table(name = "el_type", schema = "APP")
+@Table(name = "el_type", schema = "nf_front")
 @NamedQueries({
         @NamedQuery(name = ElephantType.SEARCH_QUERY,
-                query = "select e from el_type e where upper(e.name_type) like '%:pattern%' or upper(e.description) like '%:pattern%' order by e.id")
+                query = "select e from ElephantType e where upper(e.name) like " + ":" + ElephantType.PARAMETER_PATTERN +
+                        " or upper(e.description) like " +  ":" +  ElephantType.PARAMETER_PATTERN  +  " order by e.id")
 })
 public class ElephantType {
 

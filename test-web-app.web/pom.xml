@@ -57,6 +57,27 @@
             <artifactId>jsf-impl</artifactId>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>ru.neoflex.faces</groupId>
+            <artifactId>neoflex.faces.injection.provider</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>ru.neoflex.faces</groupId>
+            <artifactId>neoflex.faces.resource.resolver</artifactId>
+        </dependency>
+
+        <!-- UI -->
+        <dependency>
+            <groupId>ru.neoflex.faces</groupId>
+            <artifactId>neoflex.faces.components</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>ru.neoflex.faces</groupId>
+            <artifactId>neoflex.faces.beans</artifactId>
+        </dependency>
          <!-- Test -->
         <dependency>
             <groupId>junit</groupId>

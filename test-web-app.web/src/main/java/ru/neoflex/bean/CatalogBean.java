@@ -17,7 +17,7 @@ import java.util.Map;
 @SessionScoped
 public class CatalogBean {
     @EJB
-    protected ElephantService elephantService;
+    private ElephantService elephantService;
 
     private Map<Long, Item> items;
     private Order order;
@@ -26,7 +26,7 @@ public class CatalogBean {
         if (order == null) {
             order = new Order();
             // получим полный список слонов
-            List<ElephantType> list = elephantService.searchElephant("");
+            List<ElephantType> list = elephantService.searchElephant("%");
             items = new HashMap<Long, Item>(list.size());
             // заполним map для хранения единиц заказа
             for (ElephantType type : list) {
@@ -42,6 +42,30 @@ public class CatalogBean {
     }
 
     public List<ElephantType> getAllElephants() {
-        return elephantService.searchElephant("");
+        return elephantService.searchElephant("%");
+    }
+
+    public ElephantService getElephantService() {
+        return elephantService;
+    }
+
+    public void setElephantService(ElephantService elephantService) {
+        this.elephantService = elephantService;
+    }
+
+    public Map<Long, Item> getItems() {
+        return items;
+    }
+
+    public void setItems(Map<Long, Item> items) {
+        this.items = items;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
     }
 }

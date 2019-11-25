@@ -10,9 +10,7 @@
         </provider>
         <jta-data-source>jdbc/oracleelephant</jta-data-source>
         <class>ru.neoflex.domain.ElephantType</class>
-        <class>ru.neoflex.domain.ElephantTypeAge</class>
         <class>ru.neoflex.domain.Order</class>
-        <class>ru.neoflex.domain.AbstractEntity</class>
         <class>ru.neoflex.domain.Item</class>
         <properties>
             <property name="openjpa.TransactionMode" value="managed"/>

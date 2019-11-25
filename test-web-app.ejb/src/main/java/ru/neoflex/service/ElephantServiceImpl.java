@@ -4,6 +4,8 @@ import ru.neoflex.domain.ElephantType;
 import ru.neoflex.domain.Order;
 
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -14,6 +16,7 @@ import java.util.List;
  */
 
 @Stateless
+@TransactionAttribute(TransactionAttributeType.REQUIRED)
 public class ElephantServiceImpl implements ElephantService {
 
     @PersistenceContext(unitName = "oracleelephant")
@@ -25,14 +28,11 @@ public class ElephantServiceImpl implements ElephantService {
     @Override
     public List<ElephantType> searchElephant(String pattern) {
         if (pattern == null) {
-            pattern = "";
+            pattern = "%";
         }
-        /*TypedQuery<ElephantType> query = em.createNamedQuery(
-                ElephantType.SEARCH_QUERY, ElephantType.class);*/
         TypedQuery<ElephantType> query = em.createNamedQuery(
-                "select * from el_type e", ElephantType.class);
-        query.setParameter(ElephantType.PARAMETER_PATTERN,
-                "%" + pattern.toUpperCase() + "%");
+                ElephantType.SEARCH_QUERY, ElephantType.class).setParameter(ElephantType.PARAMETER_PATTERN,
+                pattern.toUpperCase());
         List<ElephantType> resultList = query.getResultList();
         return resultList;
     }

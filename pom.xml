@@ -16,7 +16,7 @@
 		</project.reporting.outputEncoding>
 
 		<!-- Neoflex components -->
-		<neoflex.faces.version>1.2.18-SNAPSHOT</neoflex.faces.version>
+		<neoflex.faces.version>1.2.43.51</neoflex.faces.version>
 
 		<!-- Ext dependency -->
 		<java.version>1.6</java.version>
