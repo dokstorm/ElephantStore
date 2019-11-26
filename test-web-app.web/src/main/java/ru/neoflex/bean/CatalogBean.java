@@ -22,6 +22,15 @@ public class CatalogBean {
     private Map<Long, Item> items = new HashMap<Long, Item>();
     private Order order;
 
+    private String searchString = "";
+    public String getSearchString() {
+        return searchString;
+    }
+
+    public void setSearchString(String searchString) {
+        this.searchString = searchString;
+    }
+
     public void init() {
         if (order == null) {
             order = new Order();
@@ -45,7 +54,10 @@ public class CatalogBean {
     }
 
     public List<ElephantType> getAllElephants() {
-        return elephantService.searchElephant("%");
+        if (searchString != null)
+            return elephantService.searchElephant("%" + searchString + "%");
+        else
+            return elephantService.searchElephant("%");
     }
 
     public ElephantService getElephantService() {
