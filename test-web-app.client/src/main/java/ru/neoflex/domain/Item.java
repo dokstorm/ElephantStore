@@ -78,6 +78,7 @@ public class Item {
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (elephantType != null ? elephantType.hashCode() : 0);
         return result;
     }
 
