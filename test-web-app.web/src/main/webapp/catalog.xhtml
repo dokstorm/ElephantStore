@@ -77,8 +77,47 @@
                                     value="#{elephant.price}"/>
                         </nx:cell>
 
+                        <nx:cell>
+                            <h:outputText
+                                    value="#{catalogBean.items[elephant.id].number}"/>
+                            <h:commandButton value="+">
+                                <f:ajax listener="#{catalogBean.add}"
+                                        event="click" render=":orderForm"/>
+                                <f:param name="elid" value="#{elephant.id}"/>
+                            </h:commandButton>
+                            <h:commandButton value="-">
+                                <f:ajax listener="#{catalogBean.delete}"
+                                        event="click" render=":orderForm"/>
+                                <f:param name="elid" value="#{elephant.id}"/>
+                            </h:commandButton>
+                        </nx:cell>
+
                     </nx:gridLayout>
                 </ui:repeat>
+            </h:panelGroup>
+            <h:panelGroup id="total" styleClass="accent">
+
+                <nx:gridLayout id="total-table" columns="2">
+                    <nx:label id="total-label" value="Итого: "
+                              styleClass="accent"/>
+                    <h:outputText id="total-output"
+                                  value="#{catalogBean.totalString}"
+                                  styleClass="accent"/>
+                </nx:gridLayout>
+            </h:panelGroup>
+
+            <h:panelGroup id="order">
+                <nx:gridLayout id="order-table" columns="3">
+                    <h:outputText value="ФИО заказчика"/>
+                    <nx:nameInput
+                            value="#{catalogBean.order.userName}"
+                            label="ФИО заказчика"
+                            id="order-fio" required="true"
+                            width="200px"
+                            maxlength="250"/>
+                    <h:commandButton value="сделать заказ"
+                                     action="#{catalogBean.doOk}"/>
+                </nx:gridLayout>
             </h:panelGroup>
         </h:form>
     </ui:define>

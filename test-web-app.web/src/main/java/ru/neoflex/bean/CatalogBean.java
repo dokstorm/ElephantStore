@@ -6,8 +6,10 @@ import ru.neoflex.domain.Order;
 import ru.neoflex.service.ElephantService;
 
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -16,6 +18,12 @@ import java.util.Map;
 @ManagedBean
 @SessionScoped
 public class CatalogBean {
+
+    private static String PARAMETER_ELEPHANT_ID = "elid";
+    private static String NO_ELEPHANT_SELECTED = "Нужно выбрать хотя бы одного слона";
+    public static String INDEX_VIEW_ID = "index.jsf";
+    public static String VIEW_ID = "catalog.jsf";
+
     @EJB
     private ElephantService elephantService;
 
@@ -25,6 +33,10 @@ public class CatalogBean {
     private String searchString = "";
     public String getSearchString() {
         return searchString;
+    }
+
+    public String getTotalString() {
+        return order.getOrderDetails();
     }
 
     public void setSearchString(String searchString) {
@@ -82,5 +94,52 @@ public class CatalogBean {
 
     public void setOrder(Order order) {
         this.order = order;
+    }
+
+    protected Long getElId() {
+        return Long.parseLong(
+                FacesContext.getCurrentInstance().getExternalContext()
+                        .getRequestParameterMap().get(PARAMETER_ELEPHANT_ID)); // PARAMETER_ELEPHANT_ID = "elid"
+    }
+
+    /**
+     * Добавляем к заказу одного слона с выбранным id
+     */
+    public void add() {
+        Long elId = getElId();
+        if (elId != null) {
+            Item item = items.get(elId);
+            if (item != null) {
+                item.setNumber(item.getNumber() + 1);
+            }
+        }
+    }
+
+    /**
+     * Убираем из заказа одного слона с выбранным id
+     */
+    public void delete() {
+        Long elId = getElId();
+        if (elId != null) {
+            Item item = items.get(elId);
+            if (item != null && item.getNumber() > 0) {
+                item.setNumber(item.getNumber() - 1);
+            }
+        }
+    }
+
+    public String doOk() {
+        if (!order.isValidOrder()) {
+            // добавляем сообщение об ошибке, если ни один слон не выбран
+            FacesContext facesContext = FacesContext.getCurrentInstance();
+            FacesMessage facesMessage = new FacesMessage(
+                    FacesMessage.SEVERITY_ERROR,
+                    NO_ELEPHANT_SELECTED, NO_ELEPHANT_SELECTED);
+            facesContext.addMessage(null, facesMessage);
+            // и возврщаем null, чтобы остаться на той же странице
+            return null;
+        }
+        elephantService.saveOrder(order);
+        return INDEX_VIEW_ID + "?faces-redirect=true";
     }
 }

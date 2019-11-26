@@ -33,7 +33,7 @@
         <param-value>ru.neoflex.faces.vendor.Was7InjectionProvider</param-value>
     </context-param>
 
-    <!--<context-param>
+<!--    <context-param>
         <param-name>javax.faces.FACELETS_RESOURCE_RESOLVER</param-name>
         <param-value>ru.neoflex.faces.view.facelets.ClassPathResourceResolver</param-value>
     </context-param>-->

@@ -118,12 +118,6 @@ public class ElephantType {
         if (o == null || getClass() != o.getClass()) return false;
 
         ElephantType elephantType = (ElephantType) o;
-
-        /*if (id != null ? !id.equals(elephantType.id) : elephantType.id != null) return false;
-        if (name != null ? !name.equals(elephantType.name) : elephantType.name != null)
-            return false;
-
-        return true;*/
         if (id == null || elephantType.id == null)
             return (name.equals(elephantType.name) && description.equals(elephantType.description)
                     && picture.equals(elephantType.picture) && price.equals(elephantType.price));
