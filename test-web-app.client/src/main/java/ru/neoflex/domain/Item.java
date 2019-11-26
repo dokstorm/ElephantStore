@@ -5,11 +5,12 @@ import javax.persistence.*;
  *  Сущность для хранения единицы заказа
  */
 @Entity
-@Table(name = "el_item", schema="APP")
+@Table(name = "el_item")
 public class Item {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "EL_ITEM_SEQ")
+    @SequenceGenerator( name = "EL_ITEM_SEQ", sequenceName = "EL_ITEM_SEQ" )
     Long id;
 
     /**
@@ -27,7 +28,7 @@ public class Item {
     Order order;
 
     /**
-     * Количество едениц
+     * Количество единиц
      */
     @Column (name = "ordered_number")
     Integer number;
@@ -69,14 +70,14 @@ public class Item {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Item item = (Item) o;
-        return id.equals(item.id) &&
-                number.equals(item.number);
+        if (id == null || item.id == null)
+            return number.equals(item.number);
+        else return id.equals(item.id);
     }
 
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (number != null ? number.hashCode() : 0);
         return result;
     }
 

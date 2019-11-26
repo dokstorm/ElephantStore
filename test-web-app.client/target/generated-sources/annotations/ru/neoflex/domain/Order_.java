@@ -10,7 +10,7 @@ import javax.persistence.metamodel.SingularAttribute;
 @javax.persistence.metamodel.StaticMetamodel
 (value=ru.neoflex.domain.Order.class)
 @javax.annotation.Generated
-(value="org.apache.openjpa.persistence.meta.AnnotationProcessor6",date="Mon Nov 25 08:06:04 VET 2019")
+(value="org.apache.openjpa.persistence.meta.AnnotationProcessor6",date="Tue Nov 26 02:05:33 VET 2019")
 public class Order_ {
     public static volatile SingularAttribute<Order,Boolean> confirmed;
     public static volatile SingularAttribute<Order,Long> id;

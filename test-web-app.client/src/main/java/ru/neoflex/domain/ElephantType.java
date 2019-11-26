@@ -9,7 +9,7 @@ import java.util.Set;
  * Сущность с товарной позицией
  */
 @Entity
-@Table(name = "el_type", schema = "nf_front")
+@Table(name = "el_type")
 @NamedQueries({
         @NamedQuery(name = ElephantType.SEARCH_QUERY,
                 query = "select e from ElephantType e where upper(e.name) like " + ":" + ElephantType.PARAMETER_PATTERN +
@@ -21,7 +21,8 @@ public class ElephantType {
     public static final String PARAMETER_PATTERN = "pattern";
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator( name = "EL_TYPE_SEQ", sequenceName = "EL_TYPE_SEQ")
+    @GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "EL_TYPE_SEQ")
     Long id;
 
     /**
@@ -51,7 +52,7 @@ public class ElephantType {
     /**
      * Предметы заказа с этой позицией
      */
-    @OneToMany (mappedBy ="elephantType", fetch = FetchType.LAZY)
+    @OneToMany (mappedBy ="elephantType", fetch = FetchType.EAGER)
     Set<Item> items;
 
     public Long getId() {
@@ -116,19 +117,22 @@ public class ElephantType {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ElephantType that = (ElephantType) o;
+        ElephantType elephantType = (ElephantType) o;
 
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
-        if (name != null ? !name.equals(that.name) : that.name != null)
+        /*if (id != null ? !id.equals(elephantType.id) : elephantType.id != null) return false;
+        if (name != null ? !name.equals(elephantType.name) : elephantType.name != null)
             return false;
 
-        return true;
+        return true;*/
+        if (id == null || elephantType.id == null)
+            return (name.equals(elephantType.name) && description.equals(elephantType.description)
+                    && picture.equals(elephantType.picture) && price.equals(elephantType.price));
+        else return id.equals(elephantType.id);
     }
 
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
     }
 }

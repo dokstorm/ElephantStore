@@ -28,6 +28,6 @@ public interface ElephantService extends Serializable {
      *
      * @param order
      */
-    void saveOrder(Order order);
+    Order saveOrder(Order order);
 
 }

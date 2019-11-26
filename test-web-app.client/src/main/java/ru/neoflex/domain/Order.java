@@ -9,11 +9,12 @@ import java.util.Set;
  * Заказ
  */
 @Entity
-@Table(name = "el_order", schema = "APP")
+@Table(name = "el_order")
 public class Order {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator( name = "EL_ORDER_SEQ", sequenceName = "EL_ORDER_SEQ")
+    @GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "EL_ORDER_SEQ")
     Long id;
 
     /**
@@ -97,16 +98,14 @@ public class Order {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
-        return id.equals(order.id) &&
-                userName.equals(order.userName) &&
-                confirmed.equals(order.confirmed);
+        if (id == null || order.id == null)
+            return userName.equals(order.userName) && confirmed.equals(order.confirmed);
+        else return id.equals(order.id);
     }
 
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (userName != null ? userName.hashCode() : 0);
-        result = 31 * result + (confirmed != null ? confirmed.hashCode() : 0);
         return result;
     }
 

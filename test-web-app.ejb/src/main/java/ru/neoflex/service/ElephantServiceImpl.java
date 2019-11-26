@@ -41,11 +41,12 @@ public class ElephantServiceImpl implements ElephantService {
      * {@inheritDoc}
      */
     @Override
-    public void saveOrder(Order order) {
+    public Order saveOrder(Order order) {
         if (order.getId() == null) {
             em.persist(order);
         } else {
-            em.merge(order);
+            order = em.merge(order);
         }
+        return order;
     }
 }

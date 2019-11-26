@@ -19,7 +19,7 @@ public class CatalogBean {
     @EJB
     private ElephantService elephantService;
 
-    private Map<Long, Item> items;
+    private Map<Long, Item> items = new HashMap<Long, Item>();
     private Order order;
 
     public void init() {
@@ -36,8 +36,11 @@ public class CatalogBean {
                 item.setOrder(order);
                 items.put(type.getId(), item);
             }
+
             // добавим пункты к заказу
             order.setItems(new HashSet(items.values()));
+            order = elephantService.saveOrder(order);
+
         }
     }
 
