@@ -9,7 +9,7 @@ import javax.persistence.metamodel.SingularAttribute;
 @javax.persistence.metamodel.StaticMetamodel
 (value=ru.neoflex.domain.Item.class)
 @javax.annotation.Generated
-(value="org.apache.openjpa.persistence.meta.AnnotationProcessor6",date="Thu Nov 28 02:48:23 VET 2019")
+(value="org.apache.openjpa.persistence.meta.AnnotationProcessor6",date="Thu Nov 28 03:24:12 VET 2019")
 public class Item_ {
     public static volatile SingularAttribute<Item,ElephantType> elephantType;
     public static volatile SingularAttribute<Item,Long> id;

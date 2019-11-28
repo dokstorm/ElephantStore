@@ -11,7 +11,25 @@
     .row1 {
         background-color: #dddddd;
     }
+    .order-table{
+        border-collapse:collapse;
+    }
 
+    .order-table-header{
+        background:none repeat scroll 0 0 #E5E5E5;
+        border-bottom:1px solid #BBBBBB;
+        padding:16px;
+    }
+
+    .order-table-odd-row{
+        background:none repeat scroll 0 0 #FFFFFFF;
+        border-top:1px solid #BBBBBB;
+    }
+
+    .order-table-even-row{
+        background:none repeat scroll 0 0 #F9F9F9;
+        border-top:1px solid #BBBBBB;
+    }
 </style>
 
         <h:form id="orderForm">
@@ -120,24 +138,24 @@
                 </nx:gridLayout>
             </h:panelGroup>
 
-<!--            <h:dataTable value="#{catalogBean.allElephants}" var="o"
+            <h:dataTable value="#{catalogBean.allElephants}" var="o"
                          styleClass="order-table"
                          headerClass="order-table-header"
                          rowClasses="order-table-odd-row,order-table-even-row"
                          border="1" cellspacing="1" cellpadding="1">
-                         &lt;!&ndash;columns="4"
+                         <!--columns="4"
                          columnWidths="150px,150px,400px,100px"
                          columnAlign="center" columnVAlign="top"
-                         cellspacing="5px">&ndash;&gt;
+                         cellspacing="5px">-->
             >
 
                 <h:column>
-                    &lt;!&ndash; column header &ndash;&gt;
+                    <!-- column header -->
                     <f:facet name="header">Изображение</f:facet>
-                    &lt;!&ndash; row record &ndash;&gt;
+                    <!-- row record -->
                     <nx:cell>
                         <h:graphicImage
-                                value="/pics/#{elephant.picture}"/>
+                                value="/pics/#{o.picture}"/>
                     </nx:cell>
                 </h:column>
 
@@ -145,7 +163,7 @@
                     <f:facet name="header">Название</f:facet>
                     <nx:cell>
                         <h:outputText style="font-weight: bold;"
-                                      value="#{elephant.name}"/>
+                                      value="#{o.name}"/>
                     </nx:cell>
                 </h:column>
 
@@ -153,7 +171,7 @@
                     <f:facet name="header">Описание</f:facet>
                     <nx:cell>
                         <h:outputText
-                                value="#{elephant.description}"/>
+                                value="#{o.description}"/>
                     </nx:cell>
                 </h:column>
 
@@ -161,11 +179,11 @@
                     <f:facet name="header">Цена</f:facet>
                     <nx:cell>
                         <h:outputText
-                                value="#{elephant.price}"/>
+                                value="#{o.price}"/>
                     </nx:cell>
                 </h:column>
 
-            </h:dataTable>-->
+            </h:dataTable>
         </h:form>
     </ui:define>
 </ui:composition>
