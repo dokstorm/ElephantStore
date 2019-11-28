@@ -11,11 +11,11 @@
     .row1 {
         background-color: #dddddd;
     }
+
 </style>
 
         <h:form id="orderForm">
             <f:event type="preRenderView" listener="#{catalogBean.init}"/>
-
             <h1>Каталог слонов</h1>
             <h:panelGroup id="search" styleClass="accent">
                 <nx:gridLayout id="search-table" columns="2">
@@ -106,19 +106,66 @@
                 </nx:gridLayout>
             </h:panelGroup>
 
-            <h:panelGroup id="order">
-                <nx:gridLayout id="order-table" columns="3">
+            <h:panelGroup id="user">
+                <nx:gridLayout id="user-table" columns="3">
                     <h:outputText value="ФИО заказчика"/>
                     <nx:nameInput
-                            value="#{catalogBean.order.userName}"
+                            value="#{catalogBean.user.userName}"
                             label="ФИО заказчика"
-                            id="order-fio" required="true"
+                            id="user-fio" required="true"
                             width="200px"
                             maxlength="250"/>
                     <h:commandButton value="сделать заказ"
                                      action="#{catalogBean.doOk}"/>
                 </nx:gridLayout>
             </h:panelGroup>
+
+<!--            <h:dataTable value="#{catalogBean.allElephants}" var="o"
+                         styleClass="order-table"
+                         headerClass="order-table-header"
+                         rowClasses="order-table-odd-row,order-table-even-row"
+                         border="1" cellspacing="1" cellpadding="1">
+                         &lt;!&ndash;columns="4"
+                         columnWidths="150px,150px,400px,100px"
+                         columnAlign="center" columnVAlign="top"
+                         cellspacing="5px">&ndash;&gt;
+            >
+
+                <h:column>
+                    &lt;!&ndash; column header &ndash;&gt;
+                    <f:facet name="header">Изображение</f:facet>
+                    &lt;!&ndash; row record &ndash;&gt;
+                    <nx:cell>
+                        <h:graphicImage
+                                value="/pics/#{elephant.picture}"/>
+                    </nx:cell>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Название</f:facet>
+                    <nx:cell>
+                        <h:outputText style="font-weight: bold;"
+                                      value="#{elephant.name}"/>
+                    </nx:cell>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Описание</f:facet>
+                    <nx:cell>
+                        <h:outputText
+                                value="#{elephant.description}"/>
+                    </nx:cell>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Цена</f:facet>
+                    <nx:cell>
+                        <h:outputText
+                                value="#{elephant.price}"/>
+                    </nx:cell>
+                </h:column>
+
+            </h:dataTable>-->
         </h:form>
     </ui:define>
 </ui:composition>

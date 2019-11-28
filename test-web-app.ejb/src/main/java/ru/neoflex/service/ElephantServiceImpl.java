@@ -2,6 +2,7 @@ package ru.neoflex.service;
 
 import ru.neoflex.domain.ElephantType;
 import ru.neoflex.domain.Order;
+import ru.neoflex.domain.User;
 
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;

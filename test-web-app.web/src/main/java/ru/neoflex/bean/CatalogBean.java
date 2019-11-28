@@ -3,6 +3,7 @@ package ru.neoflex.bean;
 import ru.neoflex.domain.ElephantType;
 import ru.neoflex.domain.Item;
 import ru.neoflex.domain.Order;
+import ru.neoflex.domain.User;
 import ru.neoflex.service.ElephantService;
 
 import javax.ejb.EJB;
@@ -29,6 +30,7 @@ public class CatalogBean {
 
     private Map<Long, Item> items = new HashMap<Long, Item>();
     private Order order;
+    private User user;
 
     private String searchString = "";
     public String getSearchString() {
@@ -46,8 +48,14 @@ public class CatalogBean {
     public void init() {
         if (order == null) {
             order = new Order();
+            if (user == null) {
+                user = new User();
+                user.setOrder(order);
+                user.setUserName("");
+            }
             // получим полный список слонов
             List<ElephantType> list = elephantService.searchElephant("%");
+
             items = new HashMap<Long, Item>(list.size());
             // заполним map для хранения единиц заказа
             for (ElephantType type : list) {
@@ -60,8 +68,8 @@ public class CatalogBean {
 
             // добавим пункты к заказу
             order.setItems(new HashSet(items.values()));
-            order = elephantService.saveOrder(order);
-
+            //order.setUser(user);
+            //order = elephantService.saveOrder(order);
         }
     }
 
@@ -94,6 +102,14 @@ public class CatalogBean {
 
     public void setOrder(Order order) {
         this.order = order;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     protected Long getElId() {
@@ -139,6 +155,7 @@ public class CatalogBean {
             // и возврщаем null, чтобы остаться на той же странице
             return null;
         }
+        order.setUser(user);
         elephantService.saveOrder(order);
         return INDEX_VIEW_ID + "?faces-redirect=true";
     }

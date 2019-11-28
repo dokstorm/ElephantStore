@@ -20,8 +20,8 @@ public class Order {
     /**
      * Имя пользователя
      */
-    @Column(name = "user_name")
-    String userName;
+    /*@Column(name = "user_name")
+    String userName;*/
 
     /**
      * Признак подтверждения
@@ -34,6 +34,13 @@ public class Order {
      */
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     Set<Item> items;
+
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    User user;
+
+    /*@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    User user;*/
 
     public String getOrderDetails() {
         BigDecimal total = BigDecimal.ZERO;
@@ -69,13 +76,13 @@ public class Order {
         this.id = id;
     }
 
-    public String getUserName() {
+    /*public String getUserName() {
         return userName;
     }
 
     public void setUserName(String userName) {
         this.userName = userName;
-    }
+    }*/
 
     public Boolean getConfirmed() {
         return confirmed;
@@ -93,13 +100,21 @@ public class Order {
         this.items = items;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
         if (id == null || order.id == null)
-            return userName.equals(order.userName) && confirmed.equals(order.confirmed);
+            return confirmed.equals(order.confirmed);
         else return id.equals(order.id);
     }
 
@@ -113,7 +128,6 @@ public class Order {
     public String toString() {
         return "Order{" +
                 "id=" + id +
-                ", userName='" + userName + '\'' +
                 ", confirmed=" + confirmed +
                 '}';
     }

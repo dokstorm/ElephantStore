@@ -11,9 +11,18 @@ import java.util.Set;
 @Entity
 @Table(name = "el_type")
 @NamedQueries({
-        @NamedQuery(name = ElephantType.SEARCH_QUERY,
+        /*@NamedQuery(name = ElephantType.SEARCH_QUERY,
                 query = "select e from ElephantType e where upper(e.name) like " + ":" + ElephantType.PARAMETER_PATTERN +
+                        " or upper(e.description) like " +  ":" +  ElephantType.PARAMETER_PATTERN  +  " order by e.id")*/
+        @NamedQuery(name = ElephantType.SEARCH_QUERY,
+                query = "select e from ElephantType e LEFT JOIN FETCH e.items " +
+                        "where upper(e.name) like " + ":" + ElephantType.PARAMETER_PATTERN +
                         " or upper(e.description) like " +  ":" +  ElephantType.PARAMETER_PATTERN  +  " order by e.id")
+       /* @NamedQuery(name = ElephantType.SEARCH_QUERY,
+                query = "select e from ElephantType e LEFT JOIN FETCH e.items " +
+                        "LEFT JOIN FETCH e.items.order " +
+                        "where upper(e.name) like " + ":" + ElephantType.PARAMETER_PATTERN +
+                        " or upper(e.description) like " +  ":" +  ElephantType.PARAMETER_PATTERN  +  " order by e.id")*/
 })
 public class ElephantType {
 
@@ -52,7 +61,7 @@ public class ElephantType {
     /**
      * Предметы заказа с этой позицией
      */
-    @OneToMany (mappedBy ="elephantType", fetch = FetchType.EAGER)
+    @OneToMany (mappedBy ="elephantType", fetch = FetchType.LAZY)
     Set<Item> items;
 
     public Long getId() {
